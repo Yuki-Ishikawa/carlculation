@@ -1,16 +1,18 @@
-<div class="edit-note">
-	<h1 class="edit-note-title">整備記録編集</h1>
-	<%= current_user.user_name %>
+<div class="image">
+	<%= image_tag("car6.jpg", :class => "image-size-top") %>
+</div>
+<div class="note-show">
+	<h3>Edit note</h3>
 		<%= form_for(@note) do |f| %>
-			<div class="edit-box">
+			<div class="note-edit-box">
 				<div class="field">
 					<%= f.label :題名 %><br>
-					<%= f.text_field :title, autocomplete: "題名", class:"edit-input" %>
+					<%= f.text_field :title, autocomplete: "題名", class:"note-title-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :本文 %><br>
-					<%= f.text_area :introduction, autocomplete: "本文", class:"edit-input" %>
+					<%= f.text_area :introduction, autocomplete: "本文", class:"note-introduction-input" %>
 				</div>
 
 			    <div class="field">
@@ -20,7 +22,7 @@
 	    	</div>
 
 	    	<div class="actions">
-    			<%= f.submit "更新", class:"edit-button" %>
+    			<%= f.submit "更新", class:"note-button btn btn-primary" %>
     		</div>
 		<% end %>
 </div>

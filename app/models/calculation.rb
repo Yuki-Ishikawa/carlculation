@@ -6,4 +6,14 @@ class Calculation < ApplicationRecord
 	def car_tax
 		price * 0.03
 	end
+
+	validates :displacement, presence: true
+	validates :weight, presence: true
+	validates :distance, presence: true
+	validates :gasoline, presence: true
+	validates :consumption, presence: true
+	validates :insurance, presence: true
+	validates :inspection, presence: true
+	validates :parking, presence: true
+	validates :price, presence: true
 end

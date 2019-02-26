@@ -1,50 +1,66 @@
+<% if false %>
+<% if @calculation.errors.any? %>
+  <div id="error_explanation" class="alert-danger">
+    <h2><%= @calculation.errors.count %> errors prohibited this obj from being saved:</h2>
+    <ul>
+      <% @calculation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
+
+<div class="image">
+	<%= image_tag("car_calculation.jpg", :class => "image-size-top") %>
+</div>
 <div class="calculation">
-	<h1 class="calculation-title">維持費計算</h1>
+	<h3 class="calculation-title">維持費計算</h3>
 		<%= form_for @calculation,url: calc_out_path do |f| %>
 			<div class="new-box">
 				<div class="field">
 					<%= f.label :排気量 %><br>
-					<%= f.text_field :displacement, autocomplete: "排気量", class:"calculation-input" %>
+					<%= f.text_field :displacement, autocomplete: "排気量", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :重量 %><br>
-					<%= f.text_field :weight, autocomplete: "重量", class:"calculation-input" %>
+					<%= f.text_field :weight, autocomplete: "重量", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :年間走行距離 %><br>
-					<%= f.text_field :distance, autocomplete: "年間走行距離", class:"calculation-input" %>
+					<%= f.text_field :distance, autocomplete: "年間走行距離", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :燃料価格 %><br>
-					<%= f.text_field :gasoline, autocomplete: "燃料価格", class:"calculation-input" %>
+					<%= f.text_field :gasoline, autocomplete: "燃料価格", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :燃費 %><br>
-					<%= f.text_field :consumption, autocomplete: "燃費", class:"calculation-input" %>
+					<%= f.text_field :consumption, autocomplete: "燃費", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :月額任意保険料 %><br>
-					<%= f.text_field :insurance, autocomplete: "任意保険料", class:"calculation-input" %>
+					<%= f.text_field :insurance, autocomplete: "任意保険料", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :車検費用 %><br>
-					<%= f.text_field :inspection, autocomplete: "車検費用", class:"calculation-input" %>
+					<%= f.text_field :inspection, autocomplete: "車検費用", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :月額駐車場代%><br>
-					<%= f.text_field :parking, autocomplete: "駐車場代", class:"calculation-input" %>
+					<%= f.text_field :parking, autocomplete: "駐車場代", class:"calculation-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :車両購入価格 %><br>
-					<%= f.text_field :price, autocomplete: "車両購入費用", class:"calculation-input" %>
+					<%= f.text_field :price, autocomplete: "車両購入費用", class:"calculation-input form-control" %>
 				</div>
 
 	    	</div>

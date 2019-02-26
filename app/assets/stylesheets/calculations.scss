@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.calculation-result-year {
+.calculation {
 	position: relative;
 	display: block;
 	margin-left: 130px;
@@ -13,12 +13,12 @@
 
 }
 
-.calculation-result-year table {
+.calculation table {
 	background: white;
 	width: 100%;
 }
 
-.calculation-result-year td {
+.calculation td {
 	height: 30px;
 }
 
@@ -26,12 +26,24 @@
 	margin-top: 20px;
 }
 
-.calculation-result-year th {
+.calculation th {
 	width: 50%;
 	background: #87cefa;
 	padding: 10px;
 }
 
-.calculation-result-year td {
+.calculation td {
 	padding-left: 10px;
 }
+
+.new-box {
+	width: 100%;
+	border: 1px solid black;
+}
+
+.calculation-input {
+	width: 80%;
+	height: 20px;
+	border: 1px solid blue;
+}
+
