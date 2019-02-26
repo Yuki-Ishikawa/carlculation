@@ -1,0 +1,36 @@
+<% if @table_name == 'Blog' %>
+    <h4>検索結果: ブログ</h4>
+<% elsif @table_name == 'Note' %>
+    <h4>検索結果: 整備記録</h4>
+<% elsif @table_name == 'Car' %>
+	<h4>検索結果: 愛車</h4>
+<% else %>
+	<h4>検索結果: ユーザー</h4>
+<% end %>
+
+<% @searched.each do |s| %>
+	<% if @table_name == 'Blog' %>
+		<%= link_to blog_path(s.id) do %>
+			<%= s.title %><br>
+			<%= attachment_image_tag s, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<% end %>
+
+	<% elsif @table_name == 'Note' %>
+		<%= link_to note_path(s.id) do %>
+			<%= s.title %><br>
+			<%= attachment_image_tag s, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<% end %>
+
+	<% elsif @table_name == 'Car' %>
+		<%= link_to car_path(s.id) do %>
+			<%= s.car_model %><br>
+			<%= attachment_image_tag s, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<% end %>
+
+	<% else %>
+		<%= link_to user_path(s.id) do %>
+			<%= s.user_name %><br>
+			<%= attachment_image_tag s, :profile_image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<% end %>
+	<% end %>
+<% end %>

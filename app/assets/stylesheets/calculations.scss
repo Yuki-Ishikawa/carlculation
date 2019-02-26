@@ -1,0 +1,37 @@
+// Place all the styles related to the calculations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.calculation-result-year {
+	position: relative;
+	display: block;
+	margin-left: 130px;
+	width: 40%;
+	height: auto;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.4);
+
+}
+
+.calculation-result-year table {
+	background: white;
+	width: 100%;
+}
+
+.calculation-result-year td {
+	height: 30px;
+}
+
+.table-once {
+	margin-top: 20px;
+}
+
+.calculation-result-year th {
+	width: 50%;
+	background: #87cefa;
+	padding: 10px;
+}
+
+.calculation-result-year td {
+	padding-left: 10px;
+}

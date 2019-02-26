@@ -1,0 +1,49 @@
+<div class="image">
+	<%= image_tag("car5.jpg", :class => "image-size-top") %>
+</div>
+<div class="blog-show">
+	<h3>Title: <%= @blog.title %></h3>
+	<%= attachment_image_tag @blog, :image, fallback: "no_image_user.jpeg", :class => "blog-show-image" %>
+	<div class="blog-show-text">
+		<p><%= simple_format(@blog.introduction) %></p>
+	</div>
+
+	<!-- コメント機能 -->
+	<% if user_signed_in? %>
+		<%= form_for [@blog, @blog_comment] do |f| %>
+			<%= f.text_area :comment, class: "form-control", placeholder: "コメントをここに" %>
+			<%= f.submit "送信する" %>
+		<% end %>
+	<% end %>
+	<!-- コメント機能 -->
+
+	<!-- コメント表示 -->
+	<div class="comments-all">
+		<% @blog.blog_comments.each do |comment| %>
+			<div class="comment-box clearfix">
+				<div class="first clearfix">
+					<div class="comment-user-image">
+						<%= attachment_image_tag comment.user, :profile_image, size: "50x50" , format: 'jpeg', fallback: "no_image_user.jpeg" %>
+					</div>
+					<div class="comment-user-information">
+						名前：<%= comment.user.user_name %><br>
+						投稿日時：<%= comment.created_at.strftime('%Y/%m/%d') %>
+					</div>
+				</div>
+				<div class="comment-text">
+					<p><%= simple_format(comment.comment) %></p>
+				</div>
+				<% if @blog.user == current_user %>
+					<%= link_to "削除", blog_blog_comments_path(@blog.id), method: :delete %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<!-- コメント表示 -->
+
+	<!-- 編集ボタン表示 -->
+	<% if @blog.user == current_user %>
+		<%= link_to "ブログ編集", edit_blog_path(@blog) %>
+	<% end %>
+	<!-- 編集ボタン表示 -->
+</div>

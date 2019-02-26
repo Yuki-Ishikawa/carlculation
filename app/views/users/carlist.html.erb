@@ -1,0 +1,9 @@
+<div class="car">
+	<p>愛車</p>
+	<% @user.cars.each do |car| %>
+		<p><%= car.car_model %></p><br>
+		<%= attachment_image_tag car, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<%= car.introduction %><br>
+		<%= link_to "詳細表示", car_path(car.id) %>
+	<% end %>
+</div>

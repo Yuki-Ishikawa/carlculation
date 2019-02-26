@@ -1,0 +1,57 @@
+<div class="calculation">
+	<h1 class="calculation-title">維持費計算</h1>
+		<%= form_for @calculation,url: calc_out_path do |f| %>
+			<div class="new-box">
+				<div class="field">
+					<%= f.label :排気量 %><br>
+					<%= f.text_field :displacement, autocomplete: "排気量", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :重量 %><br>
+					<%= f.text_field :weight, autocomplete: "重量", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :年間走行距離 %><br>
+					<%= f.text_field :distance, autocomplete: "年間走行距離", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :燃料価格 %><br>
+					<%= f.text_field :gasoline, autocomplete: "燃料価格", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :燃費 %><br>
+					<%= f.text_field :consumption, autocomplete: "燃費", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :月額任意保険料 %><br>
+					<%= f.text_field :insurance, autocomplete: "任意保険料", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :車検費用 %><br>
+					<%= f.text_field :inspection, autocomplete: "車検費用", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :月額駐車場代%><br>
+					<%= f.text_field :parking, autocomplete: "駐車場代", class:"calculation-input" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :車両購入価格 %><br>
+					<%= f.text_field :price, autocomplete: "車両購入費用", class:"calculation-input" %>
+				</div>
+
+	    	</div>
+
+	    	<div class="actions">
+    			<%= f.submit "計算", class:"new-button" %>
+    		</div>
+
+		<% end %>
+</div>

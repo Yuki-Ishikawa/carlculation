@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header {
+	z-index: 9999;
+	background-color: #fff;
+	display: flex;
+	padding: 10px 30px;
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #dde2e6
+}
+
+.header-text {
+	float: left;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.nav-menu {
+	display: flex;
+}
+
+.nav-menu li {
+	float: left;
+	list-style: none;
+	margin: 10px;
+	margin-top: 20px;
+}
+
+.margin {
+	padding-top: 84px;
+}
+
+.image-size-top {
+	width: 100%;
+	position: fixed;
+	z-index: 0;
+}
+
+.container {
+	position: relative;
+	display: block;
+}
+
+.col {
+	background-color: rgba(255,255,255,0.7);
+}
+
+.col-md-6 {
+	padding: 20px;
+	text-align: center;
+}
+
+.sign-up-input {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 25px;
+	padding: 0 15px 2px;
+	font-size: 17px;
+	background: white;
+	border: 2px solid #ebebeb;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 -2px #ebebeb;
+	box-shadow: inset 0 -2px #ebebeb;
+
+}
+
+.sign-up-input:focus {
+  border-color: #ffd700;
+  outline: none;
+  -webkit-box-shadow: inset 0 -2px #ffd700;
+  box-shadow: inset 0 -2px #ffd700;
+}
+
+.sign-up-button {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 54px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #f0776c;
+  border: 0;
+  border-bottom: 2px solid #d76b60;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #d76b60;
+  box-shadow: inset 0 -2px #d76b60;
+}

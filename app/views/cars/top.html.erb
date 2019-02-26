@@ -1,0 +1,48 @@
+<div class="image">
+	<%= image_tag("car3.jpg", :class => "image-size-top") %>
+</div>
+	<div class="product">
+		<div class="blog">
+			<h3>Blogs list</h3>
+				<div class="item clearfix">
+					<% @blogs.each do |blog| %>
+						<div class="product-box clearfix">
+							<div class="top-left">
+								<%= link_to blog_path(blog.id) do %>
+								<%= attachment_image_tag blog, :image, fallback: "no_image_user.jpeg", :class => "top-item-image" %>
+								<% end %>
+							</div>
+							<div class="top-right">
+								<%= link_to blog_path(blog.id) do %>
+									<p>Title: <%= blog.title %></p>
+								<% end %>
+								<p><%= truncate(blog.introduction, length:100) %></p>
+							</div>
+						</div>
+					<% end %>
+				<p class="more"><%= link_to "もっとみる", blogs_path %></p>
+			</div>
+		</div>
+
+		<div class="note">
+			<h3>Notes list</h3>
+				<div class="item clearfix">
+					<% @notes.each do |note| %>
+						<div class="product-box clearfix">
+							<div class="top-left">
+								<%= link_to note_path(note.id) do %>
+								<p><%= attachment_image_tag note, :image, fallback: "no_image_user.jpeg", :class => "top-item-image" %></p>
+								<% end %>
+							</div>
+							<div class="top-right">
+								<%= link_to note_path(note.id) do %>
+									<p><%= note.title %></p>
+								<% end %>
+								<p><%= truncate(note.introduction, length:100) %></p>
+							</div>
+						</div>
+					<% end %>
+				<p class="more"><%= link_to "もっとみる", notes_path %></p>
+			</div>
+		</div>
+	</div>

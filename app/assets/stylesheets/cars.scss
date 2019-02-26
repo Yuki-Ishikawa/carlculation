@@ -1,0 +1,42 @@
+// Place all the styles related to the cars controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// cars/top
+.product {
+	position: relative;
+	display: block;
+	margin-left: 130px;
+	width: 38%;
+	height: auto;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.6);
+}
+
+.item {
+	display: block;
+}
+
+.product-box {
+	display: block;
+	background-color: rgba(255,255,255,0.7);
+	margin: 5px;
+	padding: 7px;
+	border-radius: 20px;
+}
+
+.top-left {
+	width: 40%;
+	float: left;
+}
+
+.top-right {
+	width: 60%;
+	float: left;
+}
+
+.top-item-image {
+	width: 90%;
+	border-radius: 15px;
+}
+

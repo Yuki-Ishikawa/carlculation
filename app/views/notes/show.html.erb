@@ -1,0 +1,68 @@
+<div class="image">
+	<%= image_tag("car6.jpg", :class => "image-size-top") %>
+</div>
+<div class="note-show">
+	<h3>Title: <%= @note.title %></h3>
+	<%= attachment_image_tag @note, :image, fallback: "no_image_user.jpeg", :class => "note-show-image" %>
+	<div class="note-show-text">
+		<p><%= simple_format(@note.introduction) %></p>
+	</div>
+
+	<!-- コメント機能 -->
+	<% if user_signed_in? %>
+		<%= form_for [@note, @note_comment] do |f| %>
+			<%= f.text_area :comment, class: "form-control", placeholder: "コメントをここに" %>
+			<%= f.submit "送信する" %>
+		<% end %>
+	<% end %>
+	<!-- コメント機能 -->
+
+	<!-- コメント表示 -->
+	<div class="comments-all">
+		<% @note.note_comments.each do |comment| %>
+			<div class="comment-box clearfix">
+				<div class="first clearfix">
+					<div class="comment-user-image">
+						<%= attachment_image_tag comment.user, :profile_image, size: "50x50" , format: 'jpeg', fallback: "no_image_user.jpeg" %>
+					</div>
+					<div class="comment-user-information">
+						名前：<%= comment.user.user_name %><br>
+						投稿日時：<%= comment.created_at.strftime('%Y/%m/%d') %>
+					</div>
+				</div>
+				<div class="comment-text">
+					<p><%= simple_format(comment.comment) %></p>
+				</div>
+				<% if @note.user == current_user %>
+					<%= link_to "削除", note_note_comments_path(@note.id), method: :delete %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<!-- コメント表示 -->
+
+
+	<!-- クリップ機能 -->
+	<% if false %>
+	<!-- 一旦コメント化 -->
+		<% if user_signed_in? %>
+			<% if @note.cliped_by?(current_user) %>
+				<%= link_to note_clips_path(@note), method: :delete do %>
+				<span class="glyphicon glyphicon-paperclip" aria-hidden="true">クリップ</span>
+				<% end %>
+			<% else %>
+				<%= link_to note_clips_path(@note), method: :post do %>
+				<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color: blue;">クリップ</span>
+				<% end %>
+			<% end %>
+		<% end %>
+	<!-- ここまで -->
+	<% end %>
+	<!-- クリップ機能 -->
+
+	<!-- 編集ボタン表示 -->
+	<% if @note.user == current_user %>
+		<%= link_to "ブログ編集", edit_note_path(@note) %>
+	<% end %>
+	<!-- 編集ボタン表示 -->
+</div>

@@ -1,0 +1,9 @@
+<div class="note">
+	<p>整備記録</p>
+	<% @user.notes.each do |note| %>
+		<p><%= note.title %></p>
+		<%= attachment_image_tag note, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<%= note.introduction %><br>
+		<%= link_to "詳細表示", note_path(note.id) %>
+	<% end %>
+</div>

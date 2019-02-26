@@ -1,0 +1,67 @@
+<div class="image">
+	<%= image_tag("car_calculation.jpg", :class => "image-size-top") %>
+</div>
+<div class="calculation-result-year">
+	<div class="result">
+		<h3>年間維持費 <%= @total %>円</h3>
+	</div>
+	<div class="table-year">
+		<table border="1">
+			<thead>
+				<th>入力値</th>
+				<th>維持費詳細</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>排気量<br><%= @calculation.displacement %>cc</td>
+					<td>自動車税<br>¥<%= @displacement %></td>
+				</tr>
+				<tr>
+					<td>重量<br><%= @calculation.weight %>kg</td>
+					<td>重量税/年<br>¥<%= @weight / 2 %></td>
+				</tr>
+				<tr>
+					<td>ガソリン代/年</td>
+					<td>¥<%= @two.to_i %></td>
+				</tr>
+				<tr>
+					<td>自動車保険料/年</td>
+					<td>¥<%= @calculation.insurance %></td>
+				</tr>
+				<tr>
+					<td>車検代/年</td>
+					<td>¥<%= @calculation.inspection / 2 %></td>
+				</tr>
+				<tr>
+					<td>駐車場代/年</td>
+					<td>¥<%= @calculation.parking * 12%></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">・重量税は車検をした時の支払いになります。</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="table-once">
+		<table border="1">
+			<thead>
+				<th>入力値</th>
+				<th>課税金額</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>車両購入価格<br>¥<%= @calculation.price %></td>
+					<td>自動車取得税<br>¥<%= @car_tax.to_i %></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">・自動車取得税は自動車購入時にのみ支払います。<br>
+					（車両購入価格が500,000円未満の場合は非課税です。）</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

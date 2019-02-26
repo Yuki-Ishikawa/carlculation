@@ -1,0 +1,64 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// notes/index
+.note-product {
+	position: relative;
+	display: block;
+	margin-left: 130px;
+	width: 40%;
+	height: auto;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.4);
+}
+
+.note-item {
+	display: block;
+	border: 1px solid #000;
+}
+
+.note-item-contents {
+	display: block;
+	background-color: rgba(255,255,255,0.7);
+	margin: 5px;
+	padding: 7px;
+	border-radius: 20px;
+	border: 1px solid red;
+}
+
+.note-item-left {
+	width: 40%;
+	float: left;
+	border: 1px solid blue;
+}
+
+.note-item-right {
+	width: 60%;
+	float: left;
+	border: 1px solid green;
+}
+
+.note-item-image {
+	width: 90%;
+}
+
+// notes/:id/show
+
+.note-show {
+	position: relative;
+	display: block;
+	margin-left: 700px;
+	width: 43%;
+	height: auto;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.7);
+}
+
+.note-show-image {
+	width: 100%;
+}
+
+.note-show-text {
+	padding: 20px 0 20px 0;
+}

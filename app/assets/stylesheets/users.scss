@@ -1,0 +1,96 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.color {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.wrap{
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+ 
+.clearfix:after{
+  content:"";
+  clear: both;
+  display: block;
+}
+ 
+#tab-menu li {
+  float: left;
+  list-style-type: none;
+  width: 25%;
+}
+ 
+#tab-menu a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border-bottom: none;
+}
+ 
+#tab-menu .active {
+  background: #02c;
+  color: #fff;
+}
+ 
+#tab-contents .tab {
+  padding: 30px;
+  border-top: none;
+  margin-top: -10px;
+}
+ 
+#tab-contents p{
+  color:#000;
+  line-height: 2.5;
+}
+
+.tab-product {
+  display: block;
+  border: 1px solid #000;
+}
+
+.user-contents {
+  display: block;
+  background-color: rgba(255,255,255,0.7);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 20px;
+  border: 1px solid red;
+}
+
+.user-left {
+  width: 30%;
+  float: left;
+  border: 1px solid #02c;
+}
+
+.user-right {
+  width: 70%;
+  float: left;
+  padding: 20px;
+  border: 1px solid green;
+}
+
+.user-image {
+  width: 90%;
+  border-radius: 15px;
+}
+
+.more {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}

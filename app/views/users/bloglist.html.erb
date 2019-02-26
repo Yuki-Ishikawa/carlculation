@@ -1,0 +1,9 @@
+<div class="blog">
+	<p>ブログ</p>
+	<% @user.blogs.each do |blog| %>
+		<p><%= blog.title %></p>
+		<%= attachment_image_tag blog, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+		<%= blog.introduction %><br>
+		<%= link_to "詳細表示", blog_path(blog.id) %>
+	<% end %>
+</div>

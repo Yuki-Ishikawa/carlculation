@@ -1,0 +1,47 @@
+<div class="image">
+  <%= image_tag("car_devise.jpg", :class => "image-size-top") %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col col-md-6 p-md-2">
+      <h2>Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="devise-field">
+          <%= f.label :user_name %><br>
+          <%= f.text_field :user_name, autocomplete: "ユーザーネーム", class:"sign-up-input" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :blog_title %><br>
+          <%= f.text_field :blog_title, autocomplete: "ブログタイトル", class:"sign-up-input" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"sign-up-input" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>( <%= @minimum_password_length %> 文字以上 )</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"sign-up-input" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"sign-up-input" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class:"sign-up-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "users/shared/links" %>

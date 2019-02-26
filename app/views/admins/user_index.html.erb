@@ -1,0 +1,16 @@
+<%= paginate @users %>
+<div class="user">
+	<p>ユーザー一覧</p>
+		<div class="user-information">
+		<% @users.each do |user| %>
+			<%= link_to user_path(user.id) do %>
+				<div class="user-name">
+				<%= user.user_name %><br>
+				</div>
+				<div class="user-image">
+				<%= attachment_image_tag user, :profile_image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
+				</div>
+			<% end %>
+		<% end %>
+		</div>
+</div>

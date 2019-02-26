@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carlculation</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="header clearfix">
+      <div class="logo">
+        <%= link_to cars_top_path do %>
+          <%= image_tag 'Carlculation.png', :size =>'500x63' %>
+        <% end %>
+      </div>
+        <div class="header-text">
+          <% if user_signed_in? %>
+            <span>ようこそ <%= current_user.user_name %> さん</span>
+
+          <% elsif admin_signed_in? %>
+            <span>ようこそ 管理者 さん</span>
+
+          <% else %>
+            <span>ようこそ ゲスト さん</span>
+          <% end %>
+        </div>
+      <div class="header-menu">
+        <nav class="nav">
+          <% if user_signed_in? %>
+            <ul class="nav-menu">
+              <div class="search-form">
+                <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+                  <li>
+                    <%= f.select :table_name, [["ブログ", "Blog"], ["整備記録", "Note"]],{} %>
+                    <%= f.text_field :search, palceholder: "search" %>
+                    <%= f.submit("検索") %>
+                  </li>
+                <% end %>
+              </div>
+              <div class="contents">
+                <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+                <li><%= link_to "ブログ", blogs_path %></li>
+                <li><%= link_to "整備記録", notes_path %></li>
+                <li><%= link_to "維持費計算", calculations_input_path %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </div>
+            </ul>
+
+          <% elsif admin_signed_in? %>
+            <ul class="nav-menu">
+              <div class="search-form">
+                <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+                  <li>
+                    <%= f.select :table_name, [["ブログ", "Blog"], ["整備記録", "Note"], ["愛車", "Car"], ["ユーザー", "User"]],{} %>
+                    <%= f.text_field :search, palceholder: "search" %>
+                    <%= f.submit("検索") %>
+                  </li>
+                <% end %>
+              </div>
+              <div class="contents">
+                <li><%= link_to "ユーザー", admins_user_index_path %></li>
+                <li><%= link_to "ブログ", blogs_path %></li>
+                <li><%= link_to "整備記録", notes_path %></li>
+                <li><%= link_to "維持費計算", calculations_input_path %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              </div>
+            </ul>
+
+          <% else %>
+            <ul class="nav-menu">
+              <div class="search-form">
+                <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+                  <li>
+                    <%= f.select :table_name, [["ブログ", "Blog"], ["整備記録", "Note"]],{} %>
+                    <%= f.text_field :search, palceholder: "search" %>
+                    <%= f.submit("検索") %>
+                  </li>
+                <% end %>
+              </div>
+              <div class="contents">
+                <li><%= link_to "会員登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+                <li><%= link_to "ブログ", blogs_path %></li>
+                <li><%= link_to "整備記録", notes_path %></li>
+                <li><%= link_to "維持費計算", calculations_input_path %></li>
+              </div>
+            </ul>
+          <% end %>
+      </div>
+            <script type="text/javascript" src="js/application.js"></script>
+            <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    </header>
+      <div class="margin">
+        <%= yield %>
+      </div>
+  </body>
+</html>

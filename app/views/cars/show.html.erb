@@ -1,0 +1,5 @@
+<p>グレード: <%= @car.grade %></p>
+<p>型式: <%= @car.model_code %></p>
+<p>カラー: <%= @car.color %></p>
+<p><%= @car.introduction %></p>
+<%= link_to "情報編集", edit_car_path(@car.id) %>

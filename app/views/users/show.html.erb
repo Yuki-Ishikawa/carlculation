@@ -1,0 +1,124 @@
+<div class="image">
+	<%= image_tag("car1.jpg", :class => "image-size-top") %>
+</div>
+<div class="color">
+	<div class="wrap">
+		<ul id="tab-menu" class="clearfix">
+	        <li><a href="#tab1" class="active">プロフィール</a></li>
+	        <li><a href="#tab2" class=""><%= @user.user_name %>の愛車</a></li>
+	        <li><a href="#tab3" class=""><%= @user.blog_title %></a></li>
+	        <li><a href="#tab4" class=""><%= @user.user_name %>の整備記録</a></li>
+	    </ul>
+
+	    <div id="tab-contents" class="clearfix">
+	    	<div id="tab1" class="tab">
+	    		<div class="tab-product clearfix">
+	    			<div class="user-contents clearfix">
+			    		<div class="user-left">
+				    		<%= attachment_image_tag @user, :profile_image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+				    	</div>
+				    	<div class="user-right">
+							<p><%= @user.user_name %></p>
+							<p>自己紹介</p>
+							<p class="text"><%= simple_format(@user.self_introduction) %></p>
+							<% if user_signed_in? %>
+								<% if @user == current_user %>
+									<%= link_to "ユーザー情報編集", edit_user_path(current_user) %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab2" class="tab">
+				<div class="tab-product clearfix">
+					<% @cars.each do |car| %>
+						<div class="user-contents clearfix">
+							<div class="user-left">
+								<%= link_to car_path(car.id) do %>
+								<%= attachment_image_tag car, :image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+								<% end %>
+							</div>
+							<div class="user-right">
+								<%= link_to car_path(car.id) do %>
+									<p>車名: <%= car.car_model %></p>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+					<div class="more">
+						<%= link_to "もっとみる", carlist_path(@user.id) %>
+						<% if user_signed_in? %>
+							<% if @user == current_user %>
+								<%= link_to "愛車登録", new_car_path %>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+
+			<div id="tab3" class="tab">
+				<div class="tab-product clearfix">
+					<% @blogs.each do |blog| %>
+						<div class="user-contents clearfix">
+							<div class="user-left">
+								<%= link_to blog_path(blog.id) do %>
+								<%= attachment_image_tag blog, :image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+								<% end %>
+							</div>
+							<div class="user-right">
+								<%= link_to blog_path(blog.id) do %>
+									<p>Title: <%= blog.title %></p>
+								<% end %>
+								<p><%= truncate(blog.introduction, length:200) %></p>
+							</div>
+						</div>
+					<% end %>
+						<div class="more">
+							<%= link_to "もっとみる", bloglist_path(@user.id) %>
+							<% if user_signed_in? %>
+								<% if @user == current_user %>
+									<%= link_to "ブログ投稿", new_blog_path %>
+								<% end %>
+							<% end %>
+						</div>
+				</div>
+			</div>
+
+			<div id="tab4" class="tab">
+				<div class="tab-product clearfix">
+					<% @notes.each do |note| %>
+						<div class="user-contents clearfix">
+							<div class="user-left">
+								<%= link_to note_path(note.id) do %>
+								<%= attachment_image_tag note, :image, fallback: "no_image_user.jpeg", :class => "user-image" %><br>
+								<% end %>
+							</div>
+							<div class="user-right">
+								<%= link_to note_path(note.id) do %>
+									<p><%= note.title %></p>
+								<% end %>
+								<p><%= truncate(note.introduction, length:200) %></p>
+							</div>
+						</div>
+					<% end %>
+						<div class="more">
+							<%= link_to "もっとみる", notelist_path(@user.id) %>
+							<% if user_signed_in? %>
+								<% if @user == current_user %>
+									<%= link_to "整備記録投稿", new_note_path %>
+								<% end %>
+							<% end %>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<% if admin_signed_in? %>
+		<div class="delete">
+			<%= link_to "退会させる", user_registration_path, method: :delete %>
+		</div>
+	<% end %>
+</div>
