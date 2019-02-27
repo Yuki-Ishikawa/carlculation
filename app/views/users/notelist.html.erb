@@ -1,9 +1,27 @@
-<div class="note">
-	<p>整備記録</p>
-	<% @user.notes.each do |note| %>
-		<p><%= note.title %></p>
-		<%= attachment_image_tag note, :image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
-		<%= note.introduction %><br>
-		<%= link_to "詳細表示", note_path(note.id) %>
-	<% end %>
+<div class="image">
+	<%= image_tag("car4.jpg", :class => "image-size-top") %>
+</div>
+<div class="note-product">
+	<h3><%= @user.user_name %>の整備記録</h3>
+		<div class="note-item">
+			<% @user.notes.each do |note| %>
+				<div class="note-item-contents clearfix">
+					<div class="note-item-left">
+						<%= link_to note_path(note.id) do %>
+							<%= attachment_image_tag note, :image, fallback: "no_image_user.jpeg", :class => "note-item-image" %>
+						<% end %>
+					</div>
+					<div class="note-item-right">
+						<p>Title: <%= note.title %></p>
+						<p><%= truncate(note.introduction, length:100) %></p>
+						<%= link_to user_path(note.user.id) do %>
+							From: <%= note.user.user_name %>
+						<% end %>
+						<div class="date">
+							<span>Date: <%= note.created_at.strftime('%Y/%m/%d') %></span>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
 </div>

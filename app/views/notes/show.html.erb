@@ -7,6 +7,10 @@
 	<div class="note-show-text">
 		<p><%= simple_format(@note.introduction) %></p>
 	</div>
+	<div class="note-user-information">
+		名前：<%= @note.user.user_name %><br>
+		投稿日時：<%= @note.created_at.strftime('%Y/%m/%d') %>
+	</div>
 
 	<!-- コメント機能 -->
 	<% if user_signed_in? %>
@@ -62,7 +66,9 @@
 
 	<!-- 編集ボタン表示 -->
 	<% if @note.user == current_user %>
-		<%= link_to "ブログ編集", edit_note_path(@note) %>
+		<div class="more">
+			<%= link_to "ブログ編集", edit_note_path(@note) %>
+		</div>
 	<% end %>
 	<!-- 編集ボタン表示 -->
 </div>

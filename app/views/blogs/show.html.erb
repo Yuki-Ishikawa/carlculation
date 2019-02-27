@@ -7,6 +7,10 @@
 	<div class="blog-show-text">
 		<p><%= simple_format(@blog.introduction) %></p>
 	</div>
+	<div class="blog-user-information">
+		名前：<%= @blog.user.user_name %><br>
+		投稿日時：<%= @blog.created_at.strftime('%Y/%m/%d') %>
+	</div>
 
 	<!-- コメント機能 -->
 	<% if user_signed_in? %>
@@ -43,7 +47,9 @@
 
 	<!-- 編集ボタン表示 -->
 	<% if @blog.user == current_user %>
-		<%= link_to "ブログ編集", edit_blog_path(@blog) %>
+		<div class="more">
+			<%= link_to "ブログ編集", edit_blog_path(@blog) %>
+		</div>
 	<% end %>
 	<!-- 編集ボタン表示 -->
 </div>

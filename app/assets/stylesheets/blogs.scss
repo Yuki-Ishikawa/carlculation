@@ -15,28 +15,27 @@
 
 .blog-item {
 	display: block;
-	border: 1px solid #000;
 }
 
 .blog-item-contents {
 	display: block;
 	background-color: rgba(255,255,255,0.7);
 	margin: 5px;
-	padding: 5px;
+	padding: 7px;
 	border-radius: 20px;
-	border: 1px solid red;
+	// border: 1px solid red;
 }
 
 .blog-item-left {
 	width: 40%;
 	float: left;
-	border: 1px solid blue;
+	// border: 1px solid blue;
 }
 
 .blog-item-right {
 	width: 60%;
 	float: left;
-	border: 1px solid green;
+	// border: 1px solid green;
 }
 
 .blog-item-image {
@@ -66,7 +65,7 @@
 .comments-all {
 	display: block;
 	width: 100%;
-	border: 1px solid black;
+	// border: 1px solid black;
 }
 
 .comment-box {
@@ -75,7 +74,7 @@
 	border-radius: 20px;
 	margin: 5px;
 	padding: 7px;
-	border: 1px solid red;
+	// border: 1px solid red;
 }
 
 .first {
@@ -84,17 +83,17 @@
 
 .comment-user-image {
 	float: left;
-	border: 1px solid blue;
+	// border: 1px solid blue;
 }
 
 .comment-user-information {
 	float: left;
-	border: 1px solid green;
+	// border: 1px solid green;
 }
 
 .comment-text {
 	display: block;
-	border: 1px solid orange;
+	// border: 1px solid orange;
 }
 
 .blog-introduction-input {

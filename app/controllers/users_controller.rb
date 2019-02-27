@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   	def show
     	@user = User.find(params[:id])
-  		@cars = @user.cars.limit(3).reverse_order
+  		@cars = @user.cars.reverse_order
   		@blogs = @user.blogs.limit(3).reverse_order
   		@notes = @user.notes.limit(3).reverse_order
   	end

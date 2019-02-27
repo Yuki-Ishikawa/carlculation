@@ -1,16 +1,26 @@
+<div class="image">
+	<%= image_tag("car3.jpg", :class => "image-size-top") %>
+</div>
+<div class="product">
+	<div class="blog">
+		<h3>User list</h3>
+			<div class="item clearfix">
+				<% @users.each do |user| %>
+					<div class="product-box clearfix">
+						<div class="top-left">
+							<%= link_to user_path(user.id) do %>
+								<%= attachment_image_tag user, :profile_image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", :class => "top-item-image" %>
+							<% end %>
+						</div>
+						<div class="top-right">
+							<%= link_to user_path(user.id) do %>
+								<p>Name: <%= user.user_name %></p>
+							<% end %>
+							<p><%= truncate(user.self_introduction, length:100) %></p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+	</div>
 <%= paginate @users %>
-<div class="user">
-	<p>ユーザー一覧</p>
-		<div class="user-information">
-		<% @users.each do |user| %>
-			<%= link_to user_path(user.id) do %>
-				<div class="user-name">
-				<%= user.user_name %><br>
-				</div>
-				<div class="user-image">
-				<%= attachment_image_tag user, :profile_image, :fill, 1000, 1000, fallback: "no_image_user.jpeg", size: "150x150" %><br>
-				</div>
-			<% end %>
-		<% end %>
-		</div>
 </div>

@@ -15,7 +15,7 @@
 
 .note-item {
 	display: block;
-	border: 1px solid #000;
+	// border: 1px solid #000;
 }
 
 .note-item-contents {
@@ -24,23 +24,24 @@
 	margin: 5px;
 	padding: 7px;
 	border-radius: 20px;
-	border: 1px solid red;
+	// border: 1px solid red;
 }
 
 .note-item-left {
 	width: 40%;
 	float: left;
-	border: 1px solid blue;
+	// border: 1px solid blue;
 }
 
 .note-item-right {
 	width: 60%;
 	float: left;
-	border: 1px solid green;
+	// border: 1px solid green;
 }
 
 .note-item-image {
 	width: 90%;
+	border-radius: 15px;
 }
 
 // notes/:id/show

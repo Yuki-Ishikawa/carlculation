@@ -44,17 +44,17 @@
 								<%= link_to car_path(car.id) do %>
 									<p>車名: <%= car.car_model %></p>
 								<% end %>
+								<p><%= truncate(car.introduction, length:150) %></p>
 							</div>
 						</div>
 					<% end %>
-					<div class="more">
-						<%= link_to "もっとみる", carlist_path(@user.id) %>
 						<% if user_signed_in? %>
-							<% if @user == current_user %>
-								<%= link_to "愛車登録", new_car_path %>
-							<% end %>
+							<div class="more">
+								<% if @user == current_user %>
+									<%= link_to "愛車登録", new_car_path %>
+								<% end %>
+							</div>
 						<% end %>
-					</div>
 				</div>
 			</div>
 
@@ -97,7 +97,7 @@
 							</div>
 							<div class="user-right">
 								<%= link_to note_path(note.id) do %>
-									<p><%= note.title %></p>
+									<p>Title: <%= note.title %></p>
 								<% end %>
 								<p><%= truncate(note.introduction, length:200) %></p>
 							</div>

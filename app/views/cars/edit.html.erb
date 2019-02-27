@@ -1,6 +1,8 @@
-<div class="edit">
-	<h1 class="edit-title">愛車編集</h1>
-	<%= current_user.user_name %>
+<div class="image">
+	<%= image_tag("car.new.jpg", :class => "image-size-top") %>
+</div>
+<div class="product">
+	<h3 class="edit-title">Edit car</h3>
 		<%= form_for(@car) do |f| %>
 			<div class="edit-box">
 				<div class="field">
@@ -10,22 +12,22 @@
 
 				<div class="field">
 					<%= f.label :車種 %><br>
-					<%= f.text_field :car_model, autocomplete: "車種", class:"edit-input" %>
+					<%= f.text_field :car_model, autocomplete: "車種", class:"edit-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :型式 %><br>
-					<%= f.text_field :model_code, autocomplete: "型式", class:"edit-input" %>
+					<%= f.text_field :model_code, autocomplete: "型式", class:"edit-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :ボディタイプ %><br>
-					<%= f.text_field :body_type, autocomplete: "ボディタイプ", class:"edit-input" %>
+					<%= f.text_field :body_type, autocomplete: "ボディタイプ", class:"edit-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :グレード %><br>
-					<%= f.text_field :grade, autocomplete: "グレード", class:"edit-input" %>
+					<%= f.text_field :grade, autocomplete: "グレード", class:"edit-input form-control" %>
 				</div>
 
 				<div class="field">
@@ -35,7 +37,7 @@
 
 				<div class="field">
 					<%= f.label :紹介文 %><br>
-					<%= f.text_area :introduction, autocomplete: "紹介文", class:"edit-input" %>
+					<%= f.text_area :introduction, autocomplete: "紹介文", class:"edit-input car-introduction-input" %>
 				</div>
 
 			    <div class="field">
@@ -46,7 +48,7 @@
 	    	</div>
 
 	    	<div class="actions">
-    			<%= f.submit "更新", class:"edit-button" %>
+    			<%= f.submit "更新", class:"edit-button btn btn-default" %>
     		</div>
 		<% end %>
 </div>

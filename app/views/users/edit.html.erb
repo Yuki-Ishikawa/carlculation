@@ -1,15 +1,17 @@
-<div class="edit">
-	<h1 class="edit-title">ユーザー情報編集</h1>
+<div class="image">
+  <%= image_tag("car_devise.jpg", :class => "image-size-top") %>
+<div class="user-edit">
+	<h1 class="user-edit-title">ユーザー情報編集</h1>
 		<%= form_for(@user) do |f| %>
-			<div class="edit-box">
+			<div class="user-edit-box">
 				<div class="field">
 					<%= f.label :ユーザーネーム %><br>
-					<%= f.text_field :user_name, autocomplete: "ユーザーネーム", class:"edit-input" %>
+					<%= f.text_field :user_name, autocomplete: "ユーザーネーム", class:"edit-input form-control" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :ブログタイトル %><br>
-					<%= f.text_field :blog_title, autocomplete: "ブログタイトル", class:"edit-input" %>
+					<%= f.text_field :blog_title, autocomplete: "ブログタイトル", class:"edit-input form-control" %>
 				</div>
 
 			    <div class="field">
@@ -19,7 +21,7 @@
 
 				<div class="field">
 					<%= f.label :住所 %><br>
-					<%= f.select :user_address, User.user_addresses.keys, class:"edit-input" %>
+					<%= f.select :user_address, User.user_addresses.keys, class:"edit-input " %>
 				</div>
 
 				<div class="field">
@@ -34,27 +36,27 @@
 
 				<div class="field">
 					<%= f.label :趣味 %><br>
-					<%= f.text_area :interest, autocomplete: "趣味", class:"edit-input" %>
+					<%= f.text_area :interest, autocomplete: "趣味", class:"edit-input user-text-input" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :好きなもの %><br>
-					<%= f.text_area :favorite, autocomplete: "好きなもの", class:"edit-input" %>
+					<%= f.text_area :favorite, autocomplete: "好きなもの", class:"edit-input user-text-input" %>
 				</div>
 
 				<div class="field">
 					<%= f.label :自己紹介 %><br>
-					<%= f.text_area :self_introduction, autocomplete: "自己紹介", class:"edit-input" %>
+					<%= f.text_area :self_introduction, autocomplete: "自己紹介", class:"edit-input user-text-input" %>
 				</div>
 
 		        <div class="field">
         			<%= f.label :メールアドレス %><br />
-        			<%= f.text_field :email, autocomplete: "メールアドレス", class:"edit-input" %>
+        			<%= f.text_field :email, autocomplete: "メールアドレス", class:"edit-input form-control" %>
         		</div>
 	    	</div>
 
 	    	<div class="actions">
-    			<%= f.submit "更新", class:"edit-button" %>
+    			<%= f.submit "更新", class:"edit-button btn btn-warning" %>
     		</div>
 		<% end %>
 </div>
