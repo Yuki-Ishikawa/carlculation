@@ -1,9 +1,9 @@
 <div class="image">
-	<%= image_tag("car6.jpg", :class => "image-size-top") %>
+	<%= image_tag("/images/car6.jpg", :class => "image-size-top") %>
 </div>
 <div class="note-show">
 	<h3>Title: <%= @note.title %></h3>
-	<%= attachment_image_tag @note, :image, fallback: "no_image_user.jpeg", :class => "note-show-image" %>
+	<%= attachment_image_tag @note, :image, fallback: "/images/no_image_photo.jpeg", :class => "note-show-image" %>
 	<div class="note-show-text">
 		<p><%= simple_format(@note.introduction) %></p>
 	</div>
@@ -27,7 +27,7 @@
 			<div class="comment-box clearfix">
 				<div class="first clearfix">
 					<div class="comment-user-image">
-						<%= attachment_image_tag comment.user, :profile_image, size: "50x50" , format: 'jpeg', fallback: "no_image_user.jpeg" %>
+						<%= attachment_image_tag comment.user, :profile_image, size: "50x50" , format: 'jpeg', fallback: "/images/no_image_user.jpeg" %>
 					</div>
 					<div class="comment-user-information">
 						名前：<%= comment.user.user_name %><br>

@@ -1,5 +1,5 @@
 <div class="image">
-	<%= image_tag("car1.jpg", :class => "image-size-top") %>
+	<%= image_tag("/images/car1.jpg", :class => "image-size-top") %>
 </div>
 <div class="color">
 	<div class="wrap">
@@ -15,7 +15,7 @@
 	    		<div class="tab-product clearfix">
 	    			<div class="user-contents clearfix">
 			    		<div class="user-left">
-				    		<%= attachment_image_tag @user, :profile_image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+				    		<%= attachment_image_tag @user, :profile_image, fallback: "/images/no_image_user.jpeg", :class => "user-image" %>
 				    	</div>
 				    	<div class="user-right">
 							<p><%= @user.user_name %></p>
@@ -37,7 +37,7 @@
 						<div class="user-contents clearfix">
 							<div class="user-left">
 								<%= link_to car_path(car.id) do %>
-								<%= attachment_image_tag car, :image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+								<%= attachment_image_tag car, :image, fallback: "/images/no_image_photo.jpeg", :class => "user-image" %>
 								<% end %>
 							</div>
 							<div class="user-right">
@@ -64,7 +64,7 @@
 						<div class="user-contents clearfix">
 							<div class="user-left">
 								<%= link_to blog_path(blog.id) do %>
-								<%= attachment_image_tag blog, :image, fallback: "no_image_user.jpeg", :class => "user-image" %>
+								<%= attachment_image_tag blog, :image, fallback: "/images/no_image_photo.jpeg", :class => "user-image" %>
 								<% end %>
 							</div>
 							<div class="user-right">
@@ -92,7 +92,7 @@
 						<div class="user-contents clearfix">
 							<div class="user-left">
 								<%= link_to note_path(note.id) do %>
-								<%= attachment_image_tag note, :image, fallback: "no_image_user.jpeg", :class => "user-image" %><br>
+								<%= attachment_image_tag note, :image, fallback: "/images/no_image_photo.jpeg", :class => "user-image" %><br>
 								<% end %>
 							</div>
 							<div class="user-right">

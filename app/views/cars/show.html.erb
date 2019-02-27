@@ -1,9 +1,9 @@
 <div class="image">
-	<%= image_tag("car.new.jpg", :class => "image-size-top") %>
+	<%= image_tag("/images/car.new.jpg", :class => "image-size-top") %>
 </div>
 <div class="product">
 <h3>車名: <%= @car.car_model %></h3>
-	<%= attachment_image_tag @car, :image, fallback: "no_image_user.jpeg", :class => "car-show-image" %>
+	<%= attachment_image_tag @car, :image, fallback: "/images/no_image_photo.jpeg", :class => "car-show-image" %>
 	<p>メーカー: <%= @car.maker %></p>
 	<p>グレード: <%= @car.grade %></p>
 	<p>型式: <%= @car.model_code %></p>

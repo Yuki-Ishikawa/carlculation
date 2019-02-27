@@ -1,5 +1,5 @@
 <div class="image">
-	<%= image_tag("car4.jpg", :class => "image-size-top") %>
+	<%= image_tag("/images/car4.jpg", :class => "image-size-top") %>
 </div>
 
 <div class="note-product">
@@ -9,7 +9,7 @@
 				<div class="note-item-contents clearfix">
 					<div class="note-item-left">
 						<%= link_to note_path(note.id) do %>
-							<%= attachment_image_tag note, :image, fallback: "no_image_user.jpeg", :class => "note-item-image" %>
+							<%= attachment_image_tag note, :image, fallback: "/images/no_image_photo.jpeg", :class => "note-item-image" %>
 						<% end %>
 					</div>
 					<div class="note-item-right">

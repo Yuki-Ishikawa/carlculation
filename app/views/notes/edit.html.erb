@@ -1,5 +1,5 @@
 <div class="image">
-	<%= image_tag("car6.jpg", :class => "image-size-top") %>
+	<%= image_tag("/images/car6.jpg", :class => "image-size-top") %>
 </div>
 <div class="note-show">
 	<h3>Edit note</h3>
@@ -25,8 +25,8 @@
     			<%= f.submit "更新", class:"note-button btn btn-primary" %>
     		</div>
 		<% end %>
-</div>
 
-<div class="destroy">
+<div class="more">
 	<%= link_to "削除", note_path(@note.id), method: :delete %>
+</div>
 </div>
